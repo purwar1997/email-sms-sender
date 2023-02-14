@@ -17,7 +17,7 @@ router.post('/api/sendMessage', async (req, res) => {
       from: config.SMTP_SENDER_EMAIL,
       to: email,
       subject: 'Email testing',
-      text: message,
+      html: `<p style='font-size:20px; font-family:Segoe UI'>${message}</p>`,
     });
 
     await client.messages.create({
