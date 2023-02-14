@@ -1,16 +1,15 @@
 import express from 'express';
-import axios from 'axios';
 import transporter from './config/transporter.config.js';
+import client from './config/twilio.config.js';
 import config from './config/config.js';
 
 const router = express.Router();
 
-router.post('/api/sendData', async (req, res) => {
+router.post('/api/sendMessage', async (req, res) => {
   try {
-    const { name, email, phoneNo } = req.body;
-    console.log(789);
+    const { message, email, phoneNo } = req.body;
 
-    if (!(name && email && phoneNo)) {
+    if (!(message && email && phoneNo)) {
       throw new Error('Please enter all the details');
     }
 
@@ -18,13 +17,18 @@ router.post('/api/sendData', async (req, res) => {
       from: config.SMTP_SENDER_EMAIL,
       to: email,
       subject: 'Email testing',
-      text: `Hey ${name}, welcome to our service.`,
+      text: message,
+    });
+
+    await client.messages.create({
+      body: message,
+      from: '+16283457614',
+      to: '+91' + phoneNo,
     });
 
     res.status(200).json({
       success: true,
-      message: 'Email and SMS successfully sent',
-      data: res.data,
+      message: 'Email and SMS sent successfully',
     });
   } catch (err) {
     res.status(400).json({

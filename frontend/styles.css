@@ -34,7 +34,7 @@ form {
 }
 
 .input input {
-  width: 250px;
+  width: 300px;
   padding: 8px 10px;
   font-size: 16px;
 }
@@ -54,7 +54,7 @@ button:hover {
   opacity: 0.85;
 }
 
-.message {
+#response {
   width: 50vw;
   margin: 50px auto;
   font-size: 18px;

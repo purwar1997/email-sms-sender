@@ -4,33 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" type="text/css" />
-    <title>Email and SMS Sender</title>
+    <title>Message Sender</title>
   </head>
   <body>
-    <h1>Email and SMS Sender</h1>
+    <h1>Message Sender</h1>
 
     <form>
       <div>
         <div class="input">
-          <label for="name">Enter your name</label>
-          <input class="name" type="text" name="name" id="name" />
+          <label for="message">Enter message</label>
+          <input type="text" name="message" id="message" />
         </div>
 
         <div class="input">
-          <label for="email">Enter your email</label>
-          <input class="email" type="email" name="email" id="email" />
+          <label for="email">Enter user's email id</label>
+          <input type="email" name="email" id="email" />
         </div>
 
         <div class="input">
-          <label for="phone">Enter your phone no.</label>
-          <input class="phone" type="text" name="phoneNo" id="phone" />
+          <label for="phone">Enter user's phone no.</label>
+          <input type="text" name="phoneNo" id="phone" />
         </div>
       </div>
 
-      <button type="submit">Submit</button>
+      <button type="submit">Send</button>
     </form>
 
-    <p class="message">Failure sending message!</p>
+    <p id="response">Failure sending message!</p>
 
     <script src="./script.js"></script>
   </body>
